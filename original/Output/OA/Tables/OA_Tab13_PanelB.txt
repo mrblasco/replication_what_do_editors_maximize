@@ -1,0 +1,13 @@
+Survey Regressions: Panel B					
+		(1)	(2)	(3)	(4)
+		Exposition	Importance	Rigor	Novelty
+VARIABLES	LABELS	OLS	OLS	OLS	OLS
+					
+log_ratio	Log of Actual Citation Ratio	0.20	0.70	0.17	0.35
+		(0.18)	(0.14)	(0.16)	(0.16)
+Constant	Constant	0.05	-0.04	-0.04	-0.03
+		(0.14)	(0.13)	(0.13)	(0.17)
+					
+Observations		148	148	148	148
+R-squared		0.02	0.17	0.01	0.04
+Robust standard errors in parentheses					

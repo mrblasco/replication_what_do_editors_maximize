@@ -1,0 +1,13 @@
+Survey Regressions: Panel A						
+		(1)	(2)	(3)	(4)	(5)
+		All Responses	All Responses	Paper Pairs with Balanced Citations	PhD Students & Non-Prolific Faculty	Prolific Faculty
+VARIABLES	LABELS	OLS	WLS	OLS	OLS	OLS
+						
+log_ratio	Log of Actual Citation Ratio	0.71	0.70	0.57	0.64	0.74
+		(0.07)	(0.07)	(0.19)	(0.09)	(0.10)
+Constant	Constant	-0.02	-0.01	-0.03	0.02	-0.10
+		(0.05)	(0.05)	(0.06)	(0.06)	(0.08)
+						
+Observations		148	148	65	76	34
+R-squared		0.53	0.56	0.09	0.50	0.63
+Robust standard errors in parentheses						

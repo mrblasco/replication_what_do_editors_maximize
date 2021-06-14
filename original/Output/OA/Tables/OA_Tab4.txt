@@ -1,0 +1,35 @@
+Citation Models: Publication Bias vs. Editor Signal (standard errors clustered by editor)				
+		(1)	(2)	(3)
+VARIABLES	LABELS	Asinh(Citations)	Asinh(Citations)	Asinh(Citations)
+				
+rr	R&R	0.07	-0.32	-0.29
+		(0.14)	(0.18)	(0.19)
+rr_early	rr_early		0.50	0.54
+			(0.07)	(0.10)
+rr_qje	rr_qje		0.32	0.33
+			(0.11)	(0.16)
+rr_restat	rr_restat		-0.02	-0.13
+			(0.11)	(0.14)
+rr_restud	rr_restud		0.04	0.00
+			(0.11)	(0.14)
+rho1	rho1	0.32	0.31	0.29
+		(0.08)	(0.08)	(0.10)
+rho1_early	rho1_early			-0.04
+				(0.08)
+rho1_qje	rho1_qje			-0.01
+				(0.09)
+rho1_restat	rho1_restat			0.13
+				(0.10)
+rho1_restud	rho1_restud			0.04
+				(0.10)
+frRR	frRR	1.92	1.91	1.91
+		(0.13)	(0.13)	(0.13)
+pub6	Publications: 6+	1.01	1.00	1.00
+		(0.06)	(0.06)	(0.06)
+				
+Observations		15,177	15,177	15,177
+R-squared		0.27	0.27	0.27
+Author Prominence and No. of		Yes	Yes	Yes
+Controls for Field of Paper		Yes	Yes	Yes
+Indicators for Journal-Year		Yes	Yes	Yes
+Robust standard errors in parentheses				

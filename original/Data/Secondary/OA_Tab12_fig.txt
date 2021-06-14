@@ -1,0 +1,60 @@
+NDR Stage Regressions (standard errors clustered by editor)					
+		(1)	(2)	(3)	(4)
+		Asinh(Citations)	Asinh(Citations)	Asinh(Citations)	NDR
+VARIABLES	LABELS	Pooled	Pooled	Pooled	Pooled
+					
+rho1	rho1	0.29	0.52		
+		(0.15)	(0.03)		
+notdeskrej	Not Desk Rejected	0.39		0.86	
+		(0.29)		(0.07)	
+neditor_ndr_loo2	neditor_ndr_loo2				3.17
+					(0.25)
+pub1	Publications: 1	0.57	0.62	0.50	0.43
+		(0.05)	(0.04)	(0.04)	(0.05)
+pub2	Publications: 2	0.86	0.94	0.77	0.63
+		(0.07)	(0.04)	(0.04)	(0.05)
+pub3	Publications: 3	1.10	1.21	0.98	0.87
+		(0.07)	(0.05)	(0.04)	(0.06)
+pub45	Publications: 4-5	1.36	1.49	1.20	1.13
+		(0.11)	(0.07)	(0.06)	(0.08)
+pub6	Publications: 6+	1.66	1.81	1.47	1.39
+		(0.12)	(0.07)	(0.06)	(0.10)
+auth2	2 authors	0.30	0.31	0.30	0.06
+		(0.03)	(0.03)	(0.03)	(0.02)
+auth3	3 authors	0.34	0.34	0.34	0.00
+		(0.03)	(0.03)	(0.03)	(0.03)
+auth4	4+ authors	0.46	0.47	0.45	0.02
+		(0.05)	(0.05)	(0.05)	(0.05)
+fr_lab	Field Fraction: Lab/Experiments	-0.21	-0.22	-0.20	-0.28
+		(0.14)	(0.13)	(0.15)	(0.30)
+fr_labor	Field Fraction: Labor	-0.00	0.07	-0.08	0.23
+		(0.09)	(0.06)	(0.07)	(0.07)
+fr_healthurblaw	Field Fraction: Health, Urban, Law	-0.14	-0.12	-0.16	-0.07
+		(0.08)	(0.07)	(0.09)	(0.09)
+fr_dev	Field Fraction: Development	-0.08	-0.05	-0.12	0.16
+		(0.10)	(0.11)	(0.10)	(0.11)
+fr_hist	Field Fraction: History	0.09	0.20	-0.04	0.79
+		(0.22)	(0.19)	(0.19)	(0.16)
+fr_pub	Field Fraction: Public	-0.23	-0.20	-0.26	0.13
+		(0.08)	(0.08)	(0.07)	(0.07)
+fr_io	Field Fraction: Industrial Organization	-0.26	-0.24	-0.28	0.03
+		(0.10)	(0.09)	(0.10)	(0.11)
+fr_fin	Field Fraction: Finance	-0.42	-0.43	-0.40	-0.22
+		(0.08)	(0.07)	(0.08)	(0.09)
+fr_macro	Field Fraction: Macro	-0.38	-0.39	-0.37	-0.10
+		(0.07)	(0.07)	(0.07)	(0.08)
+missingfield	Field Missing	-0.45	-0.45	-0.45	-0.14
+		(0.09)	(0.08)	(0.09)	(0.10)
+fr_micro	Field Fraction: Micro	-0.59	-0.58	-0.60	-0.02
+		(0.08)	(0.08)	(0.08)	(0.07)
+fr_other	Field Fraction: Unclassified	-0.52	-0.54	-0.50	-0.34
+		(0.07)	(0.07)	(0.07)	(0.09)
+fr_theory	Field Fraction: Theory	-0.73	-0.70	-0.76	0.10
+		(0.07)	(0.06)	(0.06)	(0.11)
+fr_metrics	Field Fraction: Econometrics	-0.51	-0.53	-0.49	-0.37
+		(0.08)	(0.08)	(0.08)	(0.13)
+					
+Observations		29,872	29,872	29,872	29,872
+R-squared		0.27	0.27	0.27	
+Pseudo-R^2					0.24
+Robust standard errors in parentheses					

@@ -1,0 +1,34 @@
+NDR Stage Regressions (standard errors clustered by editor)					
+		(1)	(2)	(3)	(4)
+		Asinh(Citations)	Asinh(Citations)	Asinh(Citations)	NDR
+VARIABLES	LABELS	Pooled	Pooled	Pooled	Pooled
+					
+pub1	Publications: 1	0.57	0.62	0.50	0.43
+		(0.05)	(0.04)	(0.04)	(0.05)
+pub2	Publications: 2	0.86	0.94	0.77	0.63
+		(0.07)	(0.04)	(0.04)	(0.05)
+pub3	Publications: 3	1.10	1.21	0.98	0.87
+		(0.07)	(0.05)	(0.04)	(0.06)
+pub45	Publications: 4-5	1.36	1.49	1.20	1.13
+		(0.11)	(0.07)	(0.06)	(0.08)
+pub6	Publications: 6+	1.66	1.81	1.47	1.39
+		(0.12)	(0.07)	(0.06)	(0.10)
+auth2	2 authors	0.30	0.31	0.30	0.06
+		(0.03)	(0.03)	(0.03)	(0.02)
+auth3	3 authors	0.34	0.34	0.34	0.00
+		(0.03)	(0.03)	(0.03)	(0.03)
+auth4	4+ authors	0.46	0.47	0.45	0.02
+		(0.05)	(0.05)	(0.05)	(0.05)
+notdeskrej	Not Desk Rejected	0.39		0.86	
+		(0.29)		(0.07)	
+rho1	rho1	0.29	0.52		
+		(0.15)	(0.03)		
+neditor_ndr_loo2	neditor_ndr_loo2				3.17
+					(0.25)
+					
+Observations		29,872	29,872	29,872	29,872
+R-squared		0.27	0.27	0.27	
+Controls for Field of Paper		Yes	Yes	Yes	Yes
+Indicators for Journal-Year Cohort		Yes	Yes	Yes	Yes
+Pseudo-R^2					0.24
+Robust standard errors in parentheses					

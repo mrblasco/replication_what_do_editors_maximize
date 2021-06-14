@@ -1,0 +1,378 @@
+		(1)	(2)
+EQUATION	VARIABLES	asinh_cites rr	y1
+			
+eq1	rr	-0.09	
+		(0.13)	
+	fr_labor	-0.24	
+		(0.10)	
+	fr_healthurblaw	-0.41	
+		(0.18)	
+	fr_dev	-0.25	
+		(0.13)	
+	fr_hist	-0.49	
+		(0.28)	
+	fr_pub	-0.45	
+		(0.11)	
+	fr_io	-0.48	
+		(0.12)	
+	fr_fin	-0.49	
+		(0.10)	
+	fr_macro	-0.44	
+		(0.10)	
+	missingfield	-0.43	
+		(0.10)	
+	fr_micro	-0.77	
+		(0.10)	
+	fr_other	-0.46	
+		(0.10)	
+	fr_theory	-1.00	
+		(0.11)	
+	fr_metrics	-0.61	
+		(0.11)	
+	fr_lab	-0.58	
+		(0.19)	
+	2.journal_factor	0.42	
+		(0.05)	
+	3.journal_factor	-0.17	
+		(0.03)	
+	4.journal_factor	0.45	
+		(0.05)	
+	2.year_factor	0.20	
+		(0.18)	
+	3.year_factor	0.29	
+		(0.29)	
+	4.year_factor	0.30	
+		(0.33)	
+	5.year_factor	0.03	
+		(0.30)	
+	6.year_factor	-0.25	
+		(0.35)	
+	7.year_factor	-0.41	
+		(0.36)	
+	8.year_factor	-0.21	
+		(0.38)	
+	9.year_factor	-0.63	
+		(0.37)	
+	10.year_factor	-0.81	
+		(0.36)	
+	11.year_factor	-1.15	
+		(0.35)	
+	1b.journal_factor#1b.year_factor	0.00	
+		(0.00)	
+	1b.journal_factor#2o.year_factor	0.00	
+		(0.00)	
+	1b.journal_factor#3o.year_factor	0.00	
+		(0.00)	
+	1b.journal_factor#4o.year_factor	0.00	
+		(0.00)	
+	1b.journal_factor#5o.year_factor	0.00	
+		(0.00)	
+	1b.journal_factor#6o.year_factor	0.00	
+		(0.00)	
+	1b.journal_factor#7o.year_factor	0.00	
+		(0.00)	
+	1b.journal_factor#8o.year_factor	0.00	
+		(0.00)	
+	1b.journal_factor#9o.year_factor	0.00	
+		(0.00)	
+	1b.journal_factor#10o.year_factor	0.00	
+		(0.00)	
+	1b.journal_factor#11o.year_factor	0.00	
+		(0.00)	
+	2o.journal_factor#1b.year_factor	0.00	
+		(0.00)	
+	2o.journal_factor#2o.year_factor	0.00	
+		(0.00)	
+	2.journal_factor#3.year_factor	0.31	
+		(0.21)	
+	2.journal_factor#4.year_factor	0.30	
+		(0.21)	
+	2.journal_factor#5.year_factor	0.57	
+		(0.17)	
+	2.journal_factor#6.year_factor	0.49	
+		(0.23)	
+	2.journal_factor#7.year_factor	0.57	
+		(0.13)	
+	2.journal_factor#8.year_factor	0.18	
+		(0.13)	
+	2.journal_factor#9.year_factor	0.44	
+		(0.11)	
+	2.journal_factor#10.year_factor	0.18	
+		(0.15)	
+	2o.journal_factor#11o.year_factor	0.00	
+		(0.00)	
+	3o.journal_factor#1b.year_factor	0.00	
+		(0.00)	
+	3o.journal_factor#2o.year_factor	0.00	
+		(0.00)	
+	3o.journal_factor#3o.year_factor	0.00	
+		(0.00)	
+	3.journal_factor#4.year_factor	0.35	
+		(0.22)	
+	3.journal_factor#5.year_factor	0.57	
+		(0.17)	
+	3.journal_factor#6.year_factor	0.47	
+		(0.20)	
+	3.journal_factor#7.year_factor	0.41	
+		(0.16)	
+	3.journal_factor#8.year_factor	-0.10	
+		(0.13)	
+	3.journal_factor#9.year_factor	0.21	
+		(0.14)	
+	3.journal_factor#10.year_factor	0.01	
+		(0.22)	
+	3o.journal_factor#11o.year_factor	0.00	
+		(0.00)	
+	4o.journal_factor#1b.year_factor	0.00	
+		(0.00)	
+	4o.journal_factor#2o.year_factor	0.00	
+		(0.00)	
+	4.journal_factor#3.year_factor	-0.26	
+		(0.14)	
+	4.journal_factor#4.year_factor	-0.26	
+		(0.22)	
+	4.journal_factor#5.year_factor	-0.25	
+		(0.15)	
+	4.journal_factor#6.year_factor	-0.03	
+		(0.23)	
+	4.journal_factor#7.year_factor	0.00	
+		(0.13)	
+	4.journal_factor#8.year_factor	-0.27	
+		(0.15)	
+	4.journal_factor#9.year_factor	-0.12	
+		(0.13)	
+	4.journal_factor#10.year_factor	-0.10	
+		(0.14)	
+	4o.journal_factor#11o.year_factor	0.00	
+		(0.00)	
+	Constant	1.81	
+		(0.38)	
+eq2	fr_labor	0.05	
+		(0.11)	
+	fr_healthurblaw	0.01	
+		(0.15)	
+	fr_dev	0.28	
+		(0.13)	
+	fr_hist	0.47	
+		(0.25)	
+	fr_pub	-0.01	
+		(0.15)	
+	fr_io	0.13	
+		(0.14)	
+	fr_fin	0.22	
+		(0.14)	
+	fr_macro	-0.00	
+		(0.13)	
+	missingfield	-0.06	
+		(0.21)	
+	fr_micro	0.17	
+		(0.12)	
+	fr_other	-0.00	
+		(0.15)	
+	fr_theory	0.12	
+		(0.11)	
+	fr_metrics	-0.13	
+		(0.15)	
+	fr_lab	-0.35	
+		(0.21)	
+	2.journal_factor	0.30	
+		(0.14)	
+	3.journal_factor	-0.06	
+		(0.12)	
+	4.journal_factor	0.43	
+		(0.11)	
+	2.year_factor	-0.65	
+		(0.25)	
+	3.year_factor	-0.30	
+		(0.24)	
+	4.year_factor	-0.39	
+		(0.23)	
+	5.year_factor	-0.33	
+		(0.24)	
+	6.year_factor	-0.28	
+		(0.27)	
+	7.year_factor	-0.24	
+		(0.25)	
+	8.year_factor	-0.47	
+		(0.30)	
+	9.year_factor	-0.65	
+		(0.24)	
+	10.year_factor	-0.53	
+		(0.24)	
+	11.year_factor	-0.44	
+		(0.24)	
+	1b.journal_factor#1b.year_factor	0.00	
+		(0.00)	
+	1b.journal_factor#2o.year_factor	0.00	
+		(0.00)	
+	1b.journal_factor#3o.year_factor	0.00	
+		(0.00)	
+	1b.journal_factor#4o.year_factor	0.00	
+		(0.00)	
+	1b.journal_factor#5o.year_factor	0.00	
+		(0.00)	
+	1b.journal_factor#6o.year_factor	0.00	
+		(0.00)	
+	1b.journal_factor#7o.year_factor	0.00	
+		(0.00)	
+	1b.journal_factor#8o.year_factor	0.00	
+		(0.00)	
+	1b.journal_factor#9o.year_factor	0.00	
+		(0.00)	
+	1b.journal_factor#10o.year_factor	0.00	
+		(0.00)	
+	1b.journal_factor#11o.year_factor	0.00	
+		(0.00)	
+	2o.journal_factor#1b.year_factor	0.00	
+		(0.00)	
+	2o.journal_factor#2o.year_factor	0.00	
+		(0.00)	
+	2.journal_factor#3.year_factor	0.03	
+		(0.26)	
+	2.journal_factor#4.year_factor	-0.13	
+		(0.26)	
+	2.journal_factor#5.year_factor	0.08	
+		(0.18)	
+	2.journal_factor#6.year_factor	-0.36	
+		(0.24)	
+	2.journal_factor#7.year_factor	-0.51	
+		(0.18)	
+	2.journal_factor#8.year_factor	-0.39	
+		(0.27)	
+	2.journal_factor#9.year_factor	-0.10	
+		(0.09)	
+	2.journal_factor#10.year_factor	0.07	
+		(0.14)	
+	2o.journal_factor#11o.year_factor	0.00	
+		(0.00)	
+	3o.journal_factor#1b.year_factor	0.00	
+		(0.00)	
+	3o.journal_factor#2o.year_factor	0.00	
+		(0.00)	
+	3o.journal_factor#3o.year_factor	0.00	
+		(0.00)	
+	3.journal_factor#4.year_factor	-0.20	
+		(0.21)	
+	3.journal_factor#5.year_factor	0.06	
+		(0.16)	
+	3.journal_factor#6.year_factor	0.04	
+		(0.18)	
+	3.journal_factor#7.year_factor	-0.02	
+		(0.15)	
+	3.journal_factor#8.year_factor	0.30	
+		(0.27)	
+	3.journal_factor#9.year_factor	0.29	
+		(0.15)	
+	3.journal_factor#10.year_factor	-0.05	
+		(0.13)	
+	3o.journal_factor#11o.year_factor	0.00	
+		(0.00)	
+	4o.journal_factor#1b.year_factor	0.00	
+		(0.00)	
+	4o.journal_factor#2o.year_factor	0.00	
+		(0.00)	
+	4.journal_factor#3.year_factor	-0.41	
+		(0.29)	
+	4.journal_factor#4.year_factor	-0.31	
+		(0.23)	
+	4.journal_factor#5.year_factor	-0.39	
+		(0.17)	
+	4.journal_factor#6.year_factor	-0.30	
+		(0.17)	
+	4.journal_factor#7.year_factor	-0.37	
+		(0.22)	
+	4.journal_factor#8.year_factor	-0.17	
+		(0.24)	
+	4.journal_factor#9.year_factor	0.08	
+		(0.12)	
+	4.journal_factor#10.year_factor	0.01	
+		(0.14)	
+	4o.journal_factor#11o.year_factor	0.00	
+		(0.00)	
+	neditor_rr_loo2	3.03	
+		(0.74)	
+	Constant	-4.42	
+		(0.30)	
+lnsigma_phi	Constant	0.45	
+		(0.01)	
+theta1	Constant	0.26	
+		(0.04)	
+theta2	Constant	0.44	
+		(0.05)	
+theta3	Constant	0.55	
+		(0.04)	
+theta45	Constant	0.73	
+		(0.06)	
+theta6	Constant	0.84	
+		(0.06)	
+theta_auth2	Constant	0.24	
+		(0.05)	
+theta_auth3	Constant	0.31	
+		(0.05)	
+theta_auth4	Constant	0.42	
+		(0.06)	
+sigma_v	Constant	0.39	
+		(0.03)	
+lambda_r	Constant	0.41	
+		(0.08)	
+pi_rep1	Constant	1.35	
+		(0.13)	
+pi_rep2	Constant	3.05	
+		(0.17)	
+pi_rep3	Constant	3.58	
+		(0.17)	
+pi_rep4	Constant	5.01	
+		(0.21)	
+pi_rep5	Constant	5.97	
+		(0.23)	
+pi_rep6	Constant	5.80	
+		(0.20)	
+pi_pub1	Constant	0.05	
+		(0.05)	
+pi_pub2	Constant	0.17	
+		(0.07)	
+pi_pub3	Constant	0.27	
+		(0.07)	
+pi_pub45	Constant	0.32	
+		(0.07)	
+pi_pub6	Constant	0.45	
+		(0.08)	
+pi_auth2	Constant	-0.03	
+		(0.06)	
+pi_auth3	Constant	0.01	
+		(0.07)	
+pi_auth4	Constant	0.10	
+		(0.08)	
+SINGLE	lambda_r1		0.53
+			(0.06)
+	lambda_r2		1.19
+			(0.09)
+	lambda_r3		1.40
+			(0.10)
+	lambda_r4		1.96
+			(0.15)
+	lambda_r5		2.34
+			(0.17)
+	lambda_r6		2.27
+			(0.15)
+	lambda_pub1		0.28
+			(0.04)
+	lambda_pub2		0.51
+			(0.04)
+	lambda_pub3		0.66
+			(0.04)
+	lambda_pub45		0.86
+			(0.05)
+	lambda_pub6		1.02
+			(0.06)
+	lambda_auth2		0.23
+			(0.04)
+	lambda_auth3		0.31
+			(0.05)
+	lambda_auth4		0.46
+			(0.06)
+	RRindicator		-0.09
+			(0.13)
+	CtrlFct		0.41
+			(0.08)
+			

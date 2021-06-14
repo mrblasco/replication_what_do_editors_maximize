@@ -1,0 +1,46 @@
+R&R Stage Regressions (standard errors clustered by editor)												
+		(1)	(2)	(3)	(4)	(5)	(6)	(7)	(8)	(9)	(10)	(11)
+		Asinh(Citations)	Asinh(Citations)	Asinh(Citations)	Asinh(Citations)	Asinh(Citations)	Tobit Asinh(Citations)	Tobit Asinh(Citations)	Probit Top 2%	R&R	R&R	R&R
+VARIABLES	LABELS	Pooled	Pooled	Pooled	Pooled	Pooled	Pooled	Pooled	Pooled	Pooled	Pooled	Pooled
+												
+frReject	frReject	0.83		0.67	0.67	0.68	0.67		0.33	0.87		0.87
+		(0.07)		(0.06)	(0.06)	(0.06)	(0.06)		(0.12)	(0.16)		(0.16)
+frNoRec	frNoRec	1.26		1.02	1.01	0.89	1.00		0.55	2.79		2.74
+		(0.12)		(0.10)	(0.10)	(0.10)	(0.10)		(0.21)	(0.17)		(0.18)
+frWeakRR	frWeakRR	1.78		1.49	1.47	1.33	1.48		0.70	3.16		3.17
+		(0.10)		(0.09)	(0.10)	(0.09)	(0.10)		(0.17)	(0.16)		(0.17)
+frRR	frRR	2.37		1.97	1.92	1.57	1.91		0.76	4.64		4.63
+		(0.10)		(0.09)	(0.13)	(0.08)	(0.13)		(0.21)	(0.20)		(0.21)
+frStrongRR	frStrongRR	2.76		2.34	2.27	1.79	2.27		0.95	5.58		5.58
+		(0.15)		(0.13)	(0.22)	(0.13)	(0.22)		(0.26)	(0.21)		(0.21)
+frAccept	frAccept	2.78		2.39	2.33	1.86	2.35		1.15	5.39		5.37
+		(0.13)		(0.12)	(0.19)	(0.12)	(0.20)		(0.25)	(0.21)		(0.21)
+pub1	Publications: 1		0.40	0.28	0.28	0.28	0.28		0.20		0.25	0.04
+			(0.04)	(0.04)	(0.04)	(0.04)	(0.04)		(0.12)		(0.04)	(0.05)
+pub2	Publications: 2		0.66	0.50	0.50	0.49	0.50		0.32		0.36	0.16
+			(0.04)	(0.04)	(0.04)	(0.04)	(0.04)		(0.08)		(0.05)	(0.07)
+pub3	Publications: 3		0.87	0.65	0.65	0.64	0.65		0.47		0.54	0.26
+			(0.04)	(0.04)	(0.04)	(0.03)	(0.04)		(0.08)		(0.05)	(0.07)
+pub45	Publications: 4-5		1.11	0.85	0.85	0.83	0.85		0.55		0.67	0.31
+			(0.06)	(0.05)	(0.05)	(0.05)	(0.05)		(0.10)		(0.05)	(0.07)
+pub6	Publications: 6+		1.34	1.01	1.01	0.99	1.02		0.78		0.85	0.45
+			(0.06)	(0.06)	(0.06)	(0.06)	(0.06)		(0.09)		(0.06)	(0.08)
+auth2	2 authors		0.19	0.22	0.22	0.23	0.22		-0.03		-0.12	-0.05
+			(0.05)	(0.04)	(0.04)	(0.04)	(0.04)		(0.05)		(0.05)	(0.06)
+auth3	3 authors		0.25	0.31	0.31	0.32	0.31		0.03		-0.15	-0.01
+			(0.05)	(0.05)	(0.05)	(0.05)	(0.05)		(0.06)		(0.05)	(0.07)
+auth4	4+ authors		0.42	0.46	0.46	0.45	0.46		0.16		-0.04	0.08
+			(0.06)	(0.06)	(0.06)	(0.06)	(0.06)		(0.10)		(0.08)	(0.08)
+rr	R&R				0.07	0.57	0.10		0.34			
+					(0.14)	(0.06)	(0.14)		(0.19)			
+rho1	rho1				0.32		0.31		0.10			
+					(0.08)		(0.08)		(0.09)			
+neditor_rr_loo2	neditor_rr_loo2											2.91
+												(0.74)
+												
+Observations		15,177	15,177	15,177	15,177	15,177	15,177	15,177	15,177	15,177	15,177	15,177
+R-squared		0.20	0.20	0.26	0.27	0.27						
+Controls for Field of Paper		No	Yes	Yes	Yes	Yes	Yes	Yes	Yes	No	Yes	Yes
+Indicator for Journal Year		Yes	Yes	Yes	Yes	Yes	Yes	Yes	Yes	Yes	Yes	Yes
+Pseudo-R^2							0.0775	0.0775	0.16	0.48	0.07	0.49
+Robust standard errors in parentheses												
