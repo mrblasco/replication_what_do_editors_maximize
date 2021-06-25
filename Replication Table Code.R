@@ -1,12 +1,12 @@
 #Table 1 Replication
-setwd("/Users/juliawiersum/replication_what_do_editors_maximize")
+#setwd("/Users/juliawiersum/replication_what_do_editors_maximize")
 library(stargazer)
 library(glue)
 library(tidyverse)
 library(haven)
 library(ggplot2)
 library(kableExtra) 
-library(faraway)
+#library(faraway)
 library(dplyr)
 library(scales)
 
@@ -37,18 +37,19 @@ REStud %>% glimpse()
 
 # Tables -------------------------------------------------------
 
-# Table 1
 
 pooled_cleaned_all <- Pooled_cleaned %>% mutate(journal = "All")
+
+# exploratory analysis 
 
 #Citations
 # Summarize by journal and decision 
 citations_table <- Pooled_cleaned %>% 
-  bind_rows(pooled_cleaned_all) %>% 
-  group_by(journal, decision) %>%
-  summarize(Gscites = mean(GScites)
-      , WOScites = mean(WOScites)
-      , Obs = n())  
+    bind_rows(pooled_cleaned_all) %>% 
+    group_by(journal, decision) %>%
+    summarize(Gscites = mean(GScites)
+        , WOScites = mean(WOScites)
+        , Obs = n())  
 
 citations_table %>% 
   kableExtra::kbl(digit = 1, caption = "Citations") %>% 
@@ -114,6 +115,46 @@ field_table %>%
 
 system("open output/tables/field_table.html")
 
+
+# Create Table 1. -------------------------------------------------------
+
+
+create_table <- function(temp) { 
+   transpose_temp <- temp %>% 
+     select(-journal) %>% 
+      as.matrix %>% 
+      t
+  colnames(transpose_temp) <- temp$journal
+  return(transpose_temp)
+}
+
+create_temp <- function(d) {
+  d %>% 
+      group_by(journal) %>% 
+      select(GScites, WOScites, authpub5) %>% 
+      mutate(GScites_asinh = asinh(GScites)) %>% 
+      summarize_if(is.numeric, c("mean" = mean, SD = sd))  %>% 
+      select(names(.) %>% sort)
+}
+
+temp_all <- Pooled_cleaned %>% 
+    bind_rows(pooled_cleaned_all) %>% 
+    create_temp()
+
+temp_no_desk <- Pooled_cleaned %>% 
+    filter(decision!="DeskRej") %>% 
+    bind_rows(pooled_cleaned_all %>% filter(decision!="DeskRej")) %>% 
+    create_temp()
+
+table_left <- create_table(temp_all)
+table_right <- create_table(temp_no_desk)
+
+cbind(table_left, table_right) %>% 
+kbl(digits = 1) %>% 
+kable_classic(full = FALSE) %>% 
+add_header_above(c("Variable", "All papers" = 5, "Non desk-rejected" = 5))
+
+
 # -------------------------------------------------------
 
 # Compute Mean and SD. 
@@ -138,30 +179,40 @@ system("open output/tables/pooled_gscites_mean_sd.html")
 # Figures -------------------------------------------------------
 
 #Figure 1a
+# Marging = 1 'row' = 2 'columns'
+decision_journal_table <- Pooled_cleaned %>% 
+  xtabs( ~ decision + journal, data = .) %>% 
+  prop.table(margin = 2) 
+
+decision_journal_table %>% t %>% barplot(beside = TRUE, legend = T)
 
 #Still need to change unit on y-axis !
-ggplot(Pooled_cleaned, mapping = aes(x=decision, fill = journal)) + 
-  geom_bar(aes(y = (..count..)/sum(..count..)), stat = "count", position=position_dodge()) + 
+ggplot(Pooled_cleaned, mapping = aes(x=journal, fill = decision)) + 
+  geom_bar(position = 'fill') +
+  scale_fill_manual(values=hcl.colors(3)) + 
   ggtitle("Figure 1a. Distribution of Editorial Decisions") + 
   xlab(NULL) + ylab(NULL)
 
 #Figure 1b (why missing? look at README)
 Pooled_cleaned %>% 
+mutate(eval1 = ifelse(eval1=="", "N/A", eval1)) %>% 
 filter(decision != 'DeskRej') %>%
-ggplot(mapping = aes(x=eval1, fill = journal)) + 
-  geom_bar(aes(y = (..count..)/sum(..count..)), stat = "count", position=position_dodge()) + 
+ggplot(mapping = aes(x = journal, fill = eval1)) + 
+  geom_bar(position = 'fill') +
+  scale_fill_manual(values=hcl.colors(8)) + 
   ggtitle("Figure 1b. Distribution of Referee Recommendations") + 
   xlab(NULL) + ylab(NULL)
 
 #Figure 1c
-ggplot(Pooled_cleaned, mapping = aes(x=authpub5, fill = journal)) + 
-  geom_bar(aes(y = (..count..)/sum(..count..)), stat = "count", position=position_dodge()) + 
+Pooled_cleaned %>% 
+mutate(authpub5 = factor(authpub5) %>% recode("6" = "6+")) %>% 
+ggplot(mapping = aes(x=journal, fill = authpub5)) + 
+  geom_bar(position = 'fill') +
   ggtitle("Figure 1c. Distribution of Author Prominence") + 
   xlab(NULL) + ylab(NULL)
 
 #Figure 1d
-ggplot(Pooled_cleaned, mapping = aes(x=refpub5_1, fill = journal)) + 
-  geom_bar(aes(y = (..count..)/sum(..count..)), stat = "count", position=position_dodge()) + 
+ggplot(Pooled_cleaned, mapping = aes(x = journal, fill = refpub5_1)) + 
   ggtitle("Figure 1d. Distribution of Referee Prominence") + 
   xlab(NULL) + ylab(NULL)
 
