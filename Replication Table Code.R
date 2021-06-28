@@ -1,5 +1,5 @@
 #Table 1 Replication
-setwd("/Users/juliawiersum/replication_what_do_editors_maximize")
+#setwd("/Users/juliawiersum/replication_what_do_editors_maximize")
 library(stargazer)
 library(glue)
 library(tidyverse)
@@ -8,6 +8,10 @@ library(ggplot2)
 library(ggpubr)
 theme_set(theme_pubr())
 library(kableExtra) 
+<<<<<<< HEAD
+=======
+#library(faraway)
+>>>>>>> 4978b71122330ab7e5435c66cb529ba931fc5b36
 library(dplyr)
 library(scales)
 
@@ -46,11 +50,19 @@ pooled_cleaned_all <- Pooled_cleaned %>% mutate(journal = "All")
 #Citations
 # Summarize by journal and decision 
 citations_table <- Pooled_cleaned %>% 
+<<<<<<< HEAD
   bind_rows(pooled_cleaned_all) %>% 
   group_by(journal, decision) %>%
   summarize(Gscites = mean(GScites)
             , WOScites = mean(WOScites)
             , Obs = n())  
+=======
+    bind_rows(pooled_cleaned_all) %>% 
+    group_by(journal, decision) %>%
+    summarize(Gscites = mean(GScites)
+        , WOScites = mean(WOScites)
+        , Obs = n())  
+>>>>>>> 4978b71122330ab7e5435c66cb529ba931fc5b36
 
 citations_table %>% 
   kableExtra::kbl(digit = 1, caption = "Citations") %>% 
@@ -116,6 +128,50 @@ field_table %>%
 
 system("open output/tables/field_table.html")
 
+<<<<<<< HEAD
+=======
+
+# Create Table 1. -------------------------------------------------------
+
+
+create_table <- function(temp) { 
+   transpose_temp <- temp %>% 
+     select(-journal) %>% 
+      as.matrix %>% 
+      t
+  colnames(transpose_temp) <- temp$journal
+  return(transpose_temp)
+}
+
+create_temp <- function(d) {
+  d %>% 
+      group_by(journal) %>% 
+      select(GScites, WOScites, authpub5) %>% 
+      mutate(GScites_asinh = asinh(GScites)) %>% 
+      summarize_if(is.numeric, c("mean" = mean, SD = sd))  %>% 
+      select(names(.) %>% sort)
+}
+
+temp_all <- Pooled_cleaned %>% 
+    bind_rows(pooled_cleaned_all) %>% 
+    create_temp()
+
+temp_no_desk <- Pooled_cleaned %>% 
+    filter(decision!="DeskRej") %>% 
+    bind_rows(pooled_cleaned_all %>% filter(decision!="DeskRej")) %>% 
+    create_temp()
+
+table_left <- create_table(temp_all)
+table_right <- create_table(temp_no_desk)
+
+cbind(table_left, table_right) %>% 
+kbl(digits = 1) %>% 
+kable_classic(full = FALSE) %>% 
+add_header_above(c("Variable", "All papers" = 5, "Non desk-rejected" = 5))
+
+
+# -------------------------------------------------------
+>>>>>>> 4978b71122330ab7e5435c66cb529ba931fc5b36
 
 # Create Table 1. -------------------------------------------------------
 
@@ -168,6 +224,14 @@ decision_journal_table %>% t %>% barplot(beside = TRUE, legend = T)
          
 
 #Figure 1a
+
+decision_journal_table <- Pooled_cleaned %>% 
+  xtabs( ~ decision + journal, data = .) %>% 
+  prop.table(margin = 2) 
+
+decision_journal_table %>% t %>% barplot(beside = TRUE, legend = T)
+
+#Still need to change unit on y-axis !
 Figure_1a <- ggplot(Pooled_cleaned, mapping = aes(x=journal, fill = decision)) + 
   geom_bar(position = 'fill') +
   scale_fill_manual(values=hcl.colors(3)) + 
@@ -195,6 +259,7 @@ Figure_1c <- Pooled_cleaned %>%
          
 #Figure 1d
 Figure_1d <- Pooled_cleaned %>%
+  filter(decision != 'DeskRej') %>%
   mutate(refpub5_1 = factor(refpub5_1) %>% recode("6" = "6+")) %>%
   ggplot(mapping = aes(x=journal, fill = refpub5_1)) +
   geom_bar(position = 'fill') +
