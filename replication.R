@@ -8,10 +8,7 @@ library(ggplot2)
 library(ggpubr)
 theme_set(theme_pubr())
 library(kableExtra) 
-<<<<<<< HEAD
-=======
 #library(faraway)
->>>>>>> 4978b71122330ab7e5435c66cb529ba931fc5b36
 library(dplyr)
 library(scales)
 
@@ -50,19 +47,12 @@ pooled_cleaned_all <- Pooled_cleaned %>% mutate(journal = "All")
 #Citations
 # Summarize by journal and decision 
 citations_table <- Pooled_cleaned %>% 
-<<<<<<< HEAD
   bind_rows(pooled_cleaned_all) %>% 
   group_by(journal, decision) %>%
   summarize(Gscites = mean(GScites)
             , WOScites = mean(WOScites)
             , Obs = n())  
-=======
-    bind_rows(pooled_cleaned_all) %>% 
-    group_by(journal, decision) %>%
-    summarize(Gscites = mean(GScites)
-        , WOScites = mean(WOScites)
-        , Obs = n())  
->>>>>>> 4978b71122330ab7e5435c66cb529ba931fc5b36
+
 
 citations_table %>% 
   kableExtra::kbl(digit = 1, caption = "Citations") %>% 
@@ -128,9 +118,6 @@ field_table %>%
 
 system("open output/tables/field_table.html")
 
-<<<<<<< HEAD
-=======
-
 # Create Table 1. -------------------------------------------------------
 
 
@@ -168,10 +155,7 @@ cbind(table_left, table_right) %>%
 kbl(digits = 1) %>% 
 kable_classic(full = FALSE) %>% 
 add_header_above(c("Variable", "All papers" = 5, "Non desk-rejected" = 5))
-
-
 # -------------------------------------------------------
->>>>>>> 4978b71122330ab7e5435c66cb529ba931fc5b36
 
 # Create Table 1. -------------------------------------------------------
 
@@ -185,12 +169,21 @@ create_table <- function(temp) {
   return(transpose_temp)
 }
 
+mean_rm_na <- function(x) {
+  mean(x, na.rm = TRUE)
+}
+
+sd_rm_na <- function(x) {
+  sd(x, na.rm = TRUE)
+}
+
 create_temp <- function(d) {
   d %>% 
     group_by(journal) %>% 
+    mutate(year_range = cut(submityear, c(2010, 2012, 2020))) %>% 
     select(GScites, WOScites, authpub5, ndr, rr, auth_count, micro, theory, metrics, macro, internat, fin, pub, labor, healthurblaw, hist, io, dev, lab, other, missingfield, frDefReject, frReject, frNoRec, frWeakRR, frRR, frStrongRR, frAccept,) %>% 
     mutate(GScites_asinh = asinh(GScites)) %>% 
-    summarize_if(is.numeric, c("mean" = mean, SD = sd))  %>% 
+    summarize_if(is.numeric, c("mean" = mean_rm_na, SD = sd_rm_na))  %>% 
     select(names(.) %>% sort)
 }
 
@@ -274,16 +267,43 @@ Figure_1
 # Models -------------------------------------------------------
          
 pooled_model <- Pooled_cleaned %>% 
- mutate(is_desk_rej = ifelse(decision == 'DeskRej', 1, 0) %>%
-  mutate(is_rr = ifelse(decision == 'RR', 1, 0))
-         
+  mutate(
+    is_desk_rej = ifelse(decision == 'DeskRej', 1, 0)
+  , is_rr = ifelse(decision == 'RR', 1, 0)
+  )
+
+# check cases 
 xtabs( ~ is_desk_rej + yearsubmit + journal
       , data = pooled_model)
          
+# Model 
+mod0 <- glm(is_desk_rej ~ journal, data = pooled_model, family = "binomial")
+summary(mod0)
+
+# add year 
+mod1 <- update(mod0,  ~ . + yearsubmit)
+summary(mod1)
+
+# add field 
+mod2 <- update(mod0,  ~ . + yearsubmit + micro + theory + metrics + macro + internat + fin + pub + labor + healthurblaw + hist + io + dev + lab + other)
+summary(mod2)
+
+stargazer(mod0, mod1, mod2, type = "text")
+
+
+# By journal 
+mod2_qje <- update(mod2, ~ . - journal, subset = journal == 'QJE')
+mod2_restud <- update(mod2, ~ . - journal, subset = journal == 'REStud')
+mod2_restat <- update(mod2, ~ . - journal, subset = journal == 'REStat')
+mod2_jeea <- update(mod2, ~ . - journal, subset = journal == 'JEEA')
+
+stargazer(mod2_qje, mod2_restud, mod2_restat, mod2_jeea, type = "text"
+    , digits = 2, column.labels = c("qje", "restud", "restat", "jeea"))
+
+
 #Model for Desk Rejection probabilty
-dr_prob <- glm(is_desk_rej ~ journal + yearsubmit + auth_count + authpub5 + micro + theory + metrics + macro + internat + fin + pub + labor + healthurblaw + hist + io + dev + lab + other) + 
-  (family = "binomial") +
-  (data = pooled_model)
+dr_prob <- glm(formula = is_desk_rej ~ journal + yearsubmit + auth_count + authpub5 + micro + theory + metrics + macro + internat + fin + pub + labor + healthurblaw + hist + io + dev + lab + other
+  , family = "binomial", data = pooled_model)
          
 stargazer(dr_prob, type = "text")
 
