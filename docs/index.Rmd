@@ -4,27 +4,30 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE)
 library(stargazer)
 library(glue)
 library(tidyverse)
 library(haven)
 library(ggplot2)
-#library(ggpubr)
-#theme_set(theme_pubr())
+library(ggpubr)
+theme_set(theme_pubr())
 library(kableExtra) 
 #library(faraway)
 library(dplyr)
 library(scales)
 ```
 
-## R Markdown
+## Replication of What Do Editors Maximize? Evidence from Four Economics Journals
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+[The original paper is available here](https://direct.mit.edu/rest/article-abstract/102/1/195/58558/What-Do-Editors-Maximize-Evidence-from-Four?redirectedFrom=fulltext)
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+The abstract: 
 
-```{r dataset}
+> We study editorial decisions using anonymized submissions matched to citations at four leading economics journals. We develop a benchmark model in which editors maximize the expected quality of accepted papers and citations are unbiased measures of quality. We then generalize the model to allow different quality thresholds, systematic gaps between citations and quality, and a direct impact of publication on citations. We find that referee recommendations are strong predictors of citations and that editors follow these recommendations closely. We document two deviations from the benchmark model. First, papers by highly published authors receive more citations, conditional on the referees' recommendations and publication status. Second, recommendations of highly published referees are equally predictive of future citations, yet editors give their views significantly more weight.
+
+
+```{r dataset, echo = FALSE}
 Pooled_cleaned <- read_dta("../original/Data/Main/Pooled_cleaned.dta")
 
 JEEA <- Pooled_cleaned %>% 
@@ -42,9 +45,55 @@ REStud <- Pooled_cleaned %>%
 pooled_cleaned_all <- Pooled_cleaned %>% mutate(journal = "All")
 ```
 
-## Including Plots
+##  Pattern of publication outcomes, recommendations, author and referee prominence for the four journals
 
-You can also embed plots, for example:
+
+```{r figure1, echo = FALSE}
+Figure_1a <- ggplot(Pooled_cleaned, mapping = aes(x=journal, fill = decision)) + 
+      geom_bar(position = 'fill') +
+      scale_fill_manual(values=hcl.colors(3)) + 
+      ggtitle("Figure 1a. Distribution of Editorial Decisions") + 
+      xlab(NULL) + ylab(NULL)
+         
+#Figure 1b (why missing? look at README)
+Figure_1b <- Pooled_cleaned %>% 
+      mutate(eval1 = ifelse(eval1=="", "N/A", eval1)) %>% 
+      filter(decision != 'DeskRej') %>%
+      ggplot(mapping = aes(x = journal, fill = eval1)) + 
+      geom_bar(position = 'fill') +
+      scale_fill_manual(values=hcl.colors(8)) + 
+      ggtitle("Figure 1b. Distribution of Referee Recommendations") + 
+      xlab(NULL) + ylab(NULL)
+         
+#Figure 1c
+Figure_1c <- Pooled_cleaned %>% 
+      mutate(authpub5 = factor(authpub5) %>% recode("6" = "6+")) %>% 
+      ggplot(mapping = aes(x=journal, fill = authpub5)) + 
+      geom_bar(position = 'fill') +
+      scale_fill_manual(values = hcl.colors(7)) +
+      ggtitle("Figure 1c. Distribution of Author Prominence") + 
+      xlab(NULL) + ylab(NULL)
+         
+#Figure 1d
+Figure_1d <- Pooled_cleaned %>%
+      filter(decision != 'DeskRej') %>%
+      mutate(refpub5_1 = factor(refpub5_1) %>% recode("6" = "6+")) %>%
+      ggplot(mapping = aes(x=journal, fill = refpub5_1)) +
+      geom_bar(position = 'fill') +
+      scale_fill_manual(values = hcl.colors(8)) +
+      ggtitle("Figure 1d. Distribution of Referee Prominence") + 
+      xlab(NULL) + ylab(NULL)
+
+Figure_1 <- ggarrange(Figure_1a, Figure_1b, Figure_1c, Figure_1d,
+                    ncol = 2, nrow = 2)
+Figure_1
+```
+
+
+## Descriptive statistics
+
+We replicated Table 1 of the paper.  
+
 
 ```{r table1, echo=FALSE}
 create_table <- function(temp) { 
@@ -93,5 +142,3 @@ table_1 <- cbind(table_left, table_right) %>%
 
 table_1
 ```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
